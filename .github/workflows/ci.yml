@@ -16,5 +16,9 @@ jobs:
         with:
           php-version: 7.4
           coverage: none
-        - run: composer install --no-dev
-        - run: PHPStan lv. 8
+
+      - run: composer install --no-dev
+        name: Composer
+
+      - run: vendor/bin/phpstan analyse -l 8 src/
+        name: PHPStan
