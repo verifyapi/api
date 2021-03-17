@@ -20,5 +20,8 @@ jobs:
       - run: composer install
         name: Composer
 
-      - run: vendor/bin/phpstan analyse -l 8 src/
+      - run: vendor/bin/phpstan analyse -l 8 src/ --output=github
         name: PHPStan
+
+      - run: vendor/bin/phpcs src --standard=vendor/pd/coding-standard/src/PeckaCodingStandard/ruleset.xml
+        name: Code-Style
