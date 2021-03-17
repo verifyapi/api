@@ -1,0 +1,3 @@
+services:
+	verifyapi.api.application:
+		factory: VerifyApi\Api\Application
