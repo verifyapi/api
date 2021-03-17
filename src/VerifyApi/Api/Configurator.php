@@ -8,7 +8,7 @@ final class Configurator
 	/**
 	 * @var array<int, string>
 	 */
-	private array $configs;
+	private array $configs = [];
 
 	private string $tempDir = __DIR__ . '/temp';
 

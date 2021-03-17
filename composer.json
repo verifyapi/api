@@ -20,9 +20,15 @@
             "VerifyApi\\Api\\": "src/VerifyApi/Api"
         }
     },
+    "autoload-dev": {
+        "classmap": [
+            "tests/"
+        ]
+    },
     "require-dev": {
         "tracy/tracy": "^2.8",
         "phpstan/phpstan": "^0.12.81",
-        "pd/coding-standard": "^1.27"
+        "pd/coding-standard": "^1.27",
+        "phpunit/phpunit": "^9"
     }
 }
