@@ -5,6 +5,7 @@ cs:
 	vendor/bin/phpcs src/ tests/ --ignore=tests/temp/ --standard=vendor/pd/coding-standard/src/PeckaCodingStandard/ruleset.xml
 
 unit-tests:
+	rm -rf temp/tests
 	vendor/bin/phpunit tests
 
 

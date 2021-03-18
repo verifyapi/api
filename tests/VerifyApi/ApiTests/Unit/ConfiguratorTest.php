@@ -8,7 +8,7 @@ final class ConfiguratorTest extends \VerifyApi\ApiTests\TestCase
 
 	public function testContainer(): void
 	{
-		$container = $this->configurator->getContainer();
+		$container = $this->configurator->createContainer();
 
 		$this->assertTrue($container instanceof \Nette\DI\Container);
 		$this->assertTrue($container->getByType(\VerifyApi\Api\Application::class) instanceof \VerifyApi\Api\Application);

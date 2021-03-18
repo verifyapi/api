@@ -10,7 +10,7 @@ final class ApplicationTest extends \VerifyApi\ApiTests\TestCase
 		$this->expectException(\Slim\Exception\HttpNotFoundException::class);
 
 		/** @var ?\VerifyApi\Api\Application $application */
-		$application = $this->configurator->getContainer()->getByType(\VerifyApi\Api\Application::class);
+		$application = $this->configurator->createContainer()->getByType(\VerifyApi\Api\Application::class);
 
 		if ( ! $application) {
 			throw new \Exception('Application not found!');
