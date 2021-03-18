@@ -6,7 +6,7 @@ final class Configurator
 {
 
 	/**
-	 * @var array<int, string>
+	 * @var array<string>
 	 */
 	private array $configs = [];
 
@@ -33,7 +33,7 @@ final class Configurator
 	}
 
 
-	public function getContainer(): \Nette\DI\Container
+	public function createContainer(): \Nette\DI\Container
 	{
 		$loader = new \Nette\DI\ContainerLoader($this->tempDir, $this->debug);
 

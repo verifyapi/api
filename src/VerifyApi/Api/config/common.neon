@@ -1,3 +1,6 @@
 services:
 	verifyapi.api.application:
 		factory: VerifyApi\Api\Application
+
+	verifyapi.api.controller.provider:
+		factory: VerifyApi\Api\Controller\Provider

@@ -7,9 +7,16 @@ final class Application
 
 	private \Slim\App $app;
 
+	/**
+	 * @var array<int, \VerifyApi\Api\IController>
+	 */
+	private array $controllers;
 
-	public function __construct()
+
+	public function __construct(\VerifyApi\Api\Controller\Provider $provider)
 	{
+		$this->controllers = $provider->provide();
+
 		$this->initialize();
 	}
 
@@ -17,6 +24,38 @@ final class Application
 	private function initialize(): void
 	{
 		$this->app = \Slim\Factory\AppFactory::create();
+
+		$this->registerRoutes();
+	}
+
+
+	public function registerRoutes(): void
+	{
+
+		foreach ($this->controllers as $controller) {
+
+			/** @var \VerifyApi\Api\Route $route */
+			foreach ($controller->getRoutes() as $route) {
+				$httpMethod = $route->httpMethod();
+				$this->app->$httpMethod(
+					$route->pattern(),
+					static function (
+						\Psr\Http\Message\RequestInterface $request,
+						\Psr\Http\Message\ResponseInterface $response
+					) use ($controller, $route) {
+
+					$controller->setRequest($request);
+					$controller->setResponse($response);
+
+					$method = $route->method();
+					$controller->$method();
+
+					return $controller->getResponse();
+				});
+			}
+
+		}
+
 	}
 
 
