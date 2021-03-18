@@ -13,7 +13,9 @@ final class Application
 	private array $controllers;
 
 
-	public function __construct(\VerifyApi\Api\Controller\Provider $provider)
+	public function __construct(
+		\VerifyApi\Api\Controller\Provider $provider
+	)
 	{
 		$this->controllers = $provider->provide();
 
@@ -29,7 +31,7 @@ final class Application
 	}
 
 
-	public function registerRoutes(): void
+	private function registerRoutes(): void
 	{
 
 		foreach ($this->controllers as $controller) {
