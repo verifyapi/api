@@ -37,6 +37,7 @@ final class Configurator
 	{
 		$loader = new \Nette\DI\ContainerLoader($this->tempDir, $this->debug);
 
+		/** @var \Nette\DI\Container $class */
 		$class = $loader->load(function ($compiler): void {
 			$compiler->loadConfig(__DIR__ . '/config/common.neon');
 			foreach ($this->configs as $config) {
