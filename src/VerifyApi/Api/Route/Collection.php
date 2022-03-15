@@ -6,7 +6,7 @@ class Collection implements \IteratorAggregate, \Countable
 {
 
 	/**
-	 * @var array<int, \VerifyApi\Api\Route>
+	 * @var array<int|string, \VerifyApi\Api\Route>
 	 */
 	private array $routes = [];
 

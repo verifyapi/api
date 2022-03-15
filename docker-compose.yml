@@ -1,0 +1,13 @@
+services:
+  composer:
+    image: composer:latest
+    working_dir: /src
+    volumes:
+      - ./:/src
+    command: composer update
+
+  php:
+    image: php:8.1-cli
+    working_dir: /src
+    volumes:
+      - ./:/src

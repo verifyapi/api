@@ -27,8 +27,13 @@
     },
     "require-dev": {
         "tracy/tracy": "^2.8",
-        "phpstan/phpstan": "^0.12.81",
+        "phpstan/phpstan": "^1.4.10",
         "pd/coding-standard": "^1.27",
         "phpunit/phpunit": "^9"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
 }
