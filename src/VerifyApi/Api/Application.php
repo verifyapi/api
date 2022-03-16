@@ -52,7 +52,7 @@ final class Application
 					$query = $request->getUri()->getQuery();
 
 					$method = $route->method();
-					$controller->$method();
+					$controller->$method(\VerifyApi\Api\Query\Query::provider($query));
 
 					return $controller->getResponse();
 				});
