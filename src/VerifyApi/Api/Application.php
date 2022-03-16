@@ -49,6 +49,8 @@ final class Application
 					$controller->setRequest($request);
 					$controller->setResponse($response);
 
+					$query = $request->getUri()->getQuery();
+
 					$method = $route->method();
 					$controller->$method();
 
