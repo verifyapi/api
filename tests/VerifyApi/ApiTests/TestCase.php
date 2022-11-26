@@ -14,6 +14,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
 
 		$this->configurator = new \VerifyApi\Api\Configurator();
 		$this->configurator->setTempDir(__DIR__ . '/../../temp');
+		$this->configurator->addConfig(__DIR__ . '/../../test.neon');
 	}
 
 }

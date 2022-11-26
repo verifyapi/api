@@ -4,3 +4,8 @@ services:
 
 	verifyapi.api.controller.provider:
 		factory: VerifyApi\Api\Controller\Provider
+
+	verifyapi.api.parameters.provider:
+		factory: \VerifyApi\Api\Parameters\Provider
+parameters:
+	basePath: /
