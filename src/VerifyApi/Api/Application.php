@@ -49,10 +49,13 @@ final class Application
 					$controller->setRequest($request);
 					$controller->setResponse($response);
 
-					$query = $request->getUri()->getQuery();
+                    $query = ! empty($query)
+                        ? \VerifyApi\Api\Query\Query::provider($request->getUri()->getQuery())
+                        : NULL
+                    ;
 
-					$method = $route->method();
-					$controller->$method(\VerifyApi\Api\Query\Query::provider($query));
+                    $method = $route->method();
+                    $controller->$method($query);
 
 					return $controller->getResponse();
 				});
